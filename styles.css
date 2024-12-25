@@ -1,0 +1,431 @@
+:root {
+    --primary-yellow: #eaaa00;
+    --primary-black: #262632;
+    --white: #ffffff;
+    --gray-light: #f8f9fa;
+    --gray: #e9ecef;
+    --text-color: #2d3436;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --hover-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+/* Dark Mode Colors */
+[data-theme="dark"] {
+    --text-color: #f8f9fa;
+    --bg-color: #1e1e2e;
+    --card-bg: #282839;
+    --gray: #3d3d4f;
+    --gray-light: #2a2a3a;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --hover-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: var(--gray-light);
+}
+
+/* Login Styles */
+#login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-black);
+}
+
+.login-box {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 400px;
+    transition: var(--transition);
+    border: 1px solid var(--gray);
+}
+
+.login-box:hover {
+    box-shadow: var(--hover-shadow);
+}
+
+.login-logo {
+    width: 180px;
+    margin: 0 auto 2rem;
+    display: block;
+}
+
+.login-box h2 {
+    text-align: center;
+    color: var(--primary-black);
+    margin-bottom: 1.5rem;
+}
+
+.login-box input,
+.setting-item input,
+.setting-item select,
+#invoice-form input,
+#invoice-form select,
+#invoice-form textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--gray);
+    border-radius: var(--border-radius);
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.login-box input:focus,
+.setting-item input:focus,
+.setting-item select:focus,
+#invoice-form input:focus,
+#invoice-form select:focus,
+#invoice-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-yellow);
+    box-shadow: 0 0 0 2px rgba(234, 170, 0, 0.2);
+}
+
+.login-box button {
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--primary-yellow);
+    border: none;
+    border-radius: 5px;
+    color: var(--primary-black);
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.login-box button:hover {
+    opacity: 0.9;
+}
+
+/* Dashboard Styles */
+#dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background: var(--primary-black);
+    color: var(--white);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--gray);
+    transition: var(--transition);
+}
+
+.dashboard-logo {
+    width: 120px;
+    margin: 1rem auto;
+    display: block;
+}
+
+.nav-links {
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.nav-links li {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.nav-links li:hover,
+.nav-links li.active {
+    background: var(--primary-yellow);
+    color: var(--primary-black);
+}
+
+.nav-links li i {
+    margin-right: 0.5rem;
+}
+
+.logout-btn {
+    margin-top: auto;
+    padding: 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.logout-btn:hover {
+    color: var(--primary-yellow);
+}
+
+.content {
+    flex: 1;
+    padding: 2rem;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.primary-btn {
+    background: var(--primary-yellow);
+    border: none;
+    border-radius: var(--border-radius);
+    color: var(--primary-black);
+    font-weight: bold;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
+}
+
+/* Invoice List Styles */
+.invoices-list {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray);
+}
+
+.invoice-item {
+    background: var(--bg-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    transition: var(--transition);
+    border: 1px solid var(--gray);
+}
+
+.invoice-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#invoice-form input,
+#invoice-form select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #dashboard-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+
+    .page-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Settings Styles */
+.settings-container {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.settings-group {
+    margin-bottom: 2rem;
+}
+
+.settings-group h3 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-yellow);
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--bg-color);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--gray);
+    transition: var(--transition);
+}
+
+.setting-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
+}
+
+.setting-item label {
+    flex: 1;
+    color: var(--text-color);
+}
+
+.setting-item input,
+.setting-item select {
+    flex: 2;
+    padding: 0.5rem;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+
+.setting-item .locked {
+    margin-left: 1rem;
+    color: var(--gray);
+}
+
+/* Language Selector Styles */
+.language-selector {
+    margin-bottom: 1rem;
+    text-align: right;
+}
+
+.language-selector select {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid var(--gray);
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+
+/* Updated Invoice Form Styles */
+#invoice-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Add styles for delete button */
+.delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    margin-left: 1rem;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+}
+
+/* Update invoice item styles */
+.invoice-item-content {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--gray);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.invoice-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Improve dark mode contrast */
+[data-theme="dark"] .primary-btn {
+    background: var(--primary-yellow);
+    color: var(--primary-black);
+}
+
+[data-theme="dark"] .nav-links li:hover,
+[data-theme="dark"] .nav-links li.active {
+    background: var(--primary-yellow);
+    color: var(--primary-black);
+}
+
+[data-theme="dark"] .login-box h2,
+[data-theme="dark"] .page-header h1 {
+    color: var(--text-color);
+} 

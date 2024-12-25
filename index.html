@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f8f9fa">
+    <title>Expert Montage Technik - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="login-container" class="active">
+        <div class="login-box">
+            <img src="ExpertMontageTechnikLogo.png" alt="Expert Montage Technik" class="login-logo">
+            <h2>Login</h2>
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="de">Deutsch</option>
+                    <option value="ro">Română</option>
+                </select>
+            </div>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" data-lang="login">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="dashboard-container" class="hidden">
+        <nav class="sidebar">
+            <div class="logo-container">
+                <img src="ExpertMontageTechnikLogo.png" alt="Expert Montage Technik" class="dashboard-logo">
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-page="all-invoices">
+                    <i class="fas fa-file-invoice"></i>
+                    <span data-lang="all_invoices">All Invoices</span>
+                </li>
+                <li data-page="paid-invoices">
+                    <i class="fas fa-check-circle"></i>
+                    <span data-lang="paid_invoices">Paid Invoices</span>
+                </li>
+                <li data-page="unpaid-invoices">
+                    <i class="fas fa-clock"></i>
+                    <span data-lang="unpaid_invoices">Unpaid Invoices</span>
+                </li>
+                <li data-page="settings">
+                    <i class="fas fa-cog"></i>
+                    <span data-lang="settings">Settings</span>
+                </li>
+            </ul>
+            <div class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span data-lang="logout">Logout</span>
+            </div>
+        </nav>
+
+        <main class="content">
+            <div id="all-invoices" class="page active">
+                <div class="page-header">
+                    <h1>All Invoices</h1>
+                    <button id="add-invoice" class="primary-btn">
+                        <i class="fas fa-plus"></i> New Invoice
+                    </button>
+                </div>
+                <div class="invoices-list"></div>
+            </div>
+
+            <div id="paid-invoices" class="page">
+                <div class="page-header">
+                    <h1>Paid Invoices</h1>
+                </div>
+                <div class="invoices-list"></div>
+            </div>
+
+            <div id="unpaid-invoices" class="page">
+                <div class="page-header">
+                    <h1>Unpaid Invoices</h1>
+                </div>
+                <div class="invoices-list"></div>
+            </div>
+
+            <div id="settings" class="page">
+                <div class="page-header">
+                    <h1 data-lang="settings">Settings</h1>
+                </div>
+                <div class="settings-container">
+                    <div class="settings-group">
+                        <h3 data-lang="account">Account</h3>
+                        <div class="setting-item">
+                            <label data-lang="username">Username</label>
+                            <input type="text" id="settings-username" disabled>
+                            <span class="locked"><i class="fas fa-lock"></i></span>
+                        </div>
+                        <div class="setting-item">
+                            <label data-lang="password">Password</label>
+                            <input type="password" value="********" disabled>
+                            <span class="locked"><i class="fas fa-lock"></i></span>
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <h3 data-lang="preferences">Preferences</h3>
+                        <div class="setting-item">
+                            <label data-lang="theme">Theme</label>
+                            <select id="theme-select">
+                                <option value="light" data-lang="light">Light</option>
+                                <option value="dark" data-lang="dark">Dark</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label data-lang="language">Language</label>
+                            <select id="dashboard-language-select">
+                                <option value="en">English</option>
+                                <option value="de">Deutsch</option>
+                                <option value="ro">Română</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for adding/editing invoices -->
+    <div id="invoice-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 data-lang="new_invoice">New Invoice</h2>
+            <form id="invoice-form">
+                <input type="text" id="invoice-number" placeholder="Invoice Number" required>
+                <input type="text" id="customer-number" placeholder="Customer Number" required>
+                <input type="text" id="beneficiary" placeholder="Beneficiary" required>
+                <textarea id="address" placeholder="Address" required></textarea>
+                <input type="number" id="amount" placeholder="Total Price" required>
+                <input type="date" id="invoice-date" required>
+                <select id="status">
+                    <option value="unpaid" data-lang="unpaid">Unpaid</option>
+                    <option value="paid" data-lang="paid">Paid</option>
+                </select>
+                <button type="submit" class="primary-btn" data-lang="save">Save Invoice</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
