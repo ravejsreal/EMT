@@ -1,7 +1,7 @@
 const translations = {
     en: {
         login: "Login",
-        all_invoices: "All Invoices",
+        all_invoices: "All Invoices (2024)",
         paid_invoices: "Paid Invoices",
         unpaid_invoices: "Unpaid Invoices",
         settings: "Settings",
@@ -145,7 +145,7 @@ const translations = {
         new_orders: "Neuen Auftrag erstellen",
         working_orders: "Aufträge in Bearbeitung",
         finished_orders: "Abgeschlossene Aufträge",
-        invoices: "Rechnungen",
+        invoices: "Rechnungen (2024)",
         client_information: "Client Information",
         client_name: "Full Client Name",
         city: "City",
@@ -249,7 +249,7 @@ const translations = {
         new_orders: "Creează Comandă Nouă",
         working_orders: "Comenzi în Desfășurare",
         finished_orders: "Comenzi Finalizate",
-        invoices: "Facturi",
+        invoices: "Facturi (2024)",
         client_information: "Client Information",
         client_name: "Full Client Name",
         city: "City",
